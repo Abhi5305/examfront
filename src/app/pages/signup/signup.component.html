@@ -1,0 +1,74 @@
+<!-- We will apply bootstrap grid to have proper alignment  -->
+<div class="bootstrap-wrapper">
+<!-- In order to have margin from left and right side -->
+<div class="container">
+<div class="row" >
+    <!-- in total of 12 grid size the column will have 6,
+    3 from both the sides will be left -->
+    <div class="col-md-6 offset-md-3">
+        <mat-card class="cardWidth">
+        <div class="container text-center">
+            <img  src="../../../assets/logo.jpeg">
+        </div>
+        
+        <h1 class="text-center">Register Here!!</h1>
+        
+        <form (ngSubmit)="submitRegistration()">
+            <!-- Username -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Username</mat-label>
+            <input required
+            [(ngModel)] = 'user.userName'
+            name = 'userName'
+            matInput placeholder="Enter username here." >
+            </mat-form-field>
+                <!-- first name -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>First name</mat-label>
+            <input 
+            [(ngModel)] = 'user.firstName'
+            name = 'firstName'
+            matInput placeholder="Enter first name here." >
+            </mat-form-field>
+                <!-- last name -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input 
+            [(ngModel)] = 'user.lastName'
+            name = 'lastName'
+            matInput placeholder="Enter last name here." >
+            </mat-form-field>  
+                    <!-- email -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Email</mat-label>
+            <input 
+            [(ngModel)] = 'user.email'
+            name = 'email'
+            type="email" matInput placeholder="Enter email here." >
+            </mat-form-field> 
+                    <!-- password -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Password</mat-label>
+            <input 
+            [(ngModel)] = 'user.password'
+            name = 'password'
+            type="password" matInput placeholder="Enter password here." >
+            </mat-form-field> 
+                    <!-- phone number -->
+            <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Phone number</mat-label>
+            <input 
+            [(ngModel)] = 'user.phone'
+            name = 'phone'
+            matInput placeholder="Enter phone number here." >
+            </mat-form-field>   
+            <div class="container text-center">
+                <button mat-raised-button color="accent">Delete</button>
+                <button mat-raised-button type="submit" color="primary" style="margin-left: 250px;">Submit</button>
+            </div> 
+        </form> 
+        </mat-card>          
+    </div>
+</div>
+</div>
+</div>
