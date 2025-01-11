@@ -4,15 +4,21 @@
     </button>
     <span>Quizzz</span>
     <span class="example-spacer"></span>
-    <a
+    <a *ngIf="!(loginService.isLoggedIn$ | async)"
     [routerLink]="'/login'"
-    mat-icon-button class="ml10"  aria-label="Login">
-      <mat-icon>login</mat-icon>
-    </a>
-    <a
+    mat-icon-button class="ml10" aria-label="Login">
+   <mat-icon>login</mat-icon>
+ </a>
+ <a *ngIf="!(loginService.isLoggedIn$ | async)"
     [routerLink]="'/signup'"
     mat-icon-button aria-label="Register">
-      <mat-icon>app_registration</mat-icon>
-   </a>
+   <mat-icon>app_registration</mat-icon>
+ </a>
+ <a *ngIf="loginService.isLoggedIn$ | async"
+    (click)="logout()"
+    mat-icon-button aria-label="Logout">
+   <mat-icon>logout</mat-icon>
+ </a>
+ 
   </mat-toolbar>
   
