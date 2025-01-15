@@ -20,11 +20,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth.interceptor';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,  
-    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, AdminComponent, UserComponent
+    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, AdminComponent, UserComponent, ProfileComponent, AdminDashboardComponent, UserDashboardComponent, SidebarComponent, AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,8 @@ import { UserComponent } from './pages/user/user.component';
     MatSnackBarModule,
     MatCardModule,   
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,
