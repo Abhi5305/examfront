@@ -16,5 +16,9 @@ export class NavbarComponent {
     localStorage.removeItem('authToken'); // Remove token
     this.loginService.loggedInStatus.next(false); // Update login status
   }
+  
+  showProfile(): void {
+    window.location.href="/admin/profile"
+  }
 
 }

@@ -1,0 +1,32 @@
+.header-image {
+    background-image: url('../../../../assets/icons8-quiz-100.png');
+    background-size: cover;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .icon {
+    padding: 0 50px;
+  }
+  .mr50{
+    margin-right: 50px;
+  }
+  .active-button {
+    background-color: red;
+    color: white;
+    font-size: 10px; /* Reduced font size */
+    padding: 2px 4px; /* Half padding */
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    margin-top: 10px;
+  }
+  
+  .inactive-button {
+    background-color: green;
+    color: white;
+    font-size: 10px; /* Reduced font size */
+    padding: 2px 4px; /* Half padding */
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    margin-top: 10px;
+  }

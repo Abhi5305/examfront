@@ -14,7 +14,7 @@
     mat-icon-button aria-label="Register">
    <mat-icon>app_registration</mat-icon>
  </a>
- <a *ngIf="loginService.isLoggedIn$ | async" class="ml20">
+ <a *ngIf="loginService.isLoggedIn$ | async" (click)="showProfile()" class="ml20">
  {{loginService.getUser().username}}
 </a>
  <a *ngIf="loginService.isLoggedIn$ | async"

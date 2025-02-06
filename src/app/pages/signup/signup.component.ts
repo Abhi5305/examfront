@@ -19,7 +19,7 @@ export class SignupComponent {
     firstName : '',
     lastName : '',
     email : '',
-    phone :''
+    phone :'',
   }
   handleError(error: HttpErrorResponse) {
     if (error.error && error.error.errors && Array.isArray(error.error.errors)) {
@@ -46,6 +46,7 @@ export class SignupComponent {
           timer: 3000, // 3000ms = 3 seconds
           timerProgressBar: true, // Optional, shows a progress bar          
         })
+        window.location.href = '/login';
       },
       error:(error: HttpErrorResponse) => {
         // Extract error messages
@@ -66,8 +67,6 @@ export class SignupComponent {
         });
       }   
    });
+
   }
-
-
-
 }

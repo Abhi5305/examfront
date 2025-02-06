@@ -12,6 +12,6 @@ export class RegistrationService {
 
   public addUser(user : any): Observable<any> {
     //here in baseUrl we need to use backtick
-   return this.http.post(`${baseUrl}/user`,user);
+   return this.http.post(`${baseUrl}/welcome/user`,user);
   }
 }

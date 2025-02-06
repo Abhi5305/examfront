@@ -1,0 +1,32 @@
+<mat-accordion class="mt10" *ngFor="let q of quizzes">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{q.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+            {{q.category.title}}
+        </mat-panel-description>
+        <div class="mr50">
+            <button mat-mini-fab  [ngClass]="q.status ? 'active-button' : 'inactive-button'"></button>
+        </div>
+        <div mat-card-avatar class="header-image ml20"></div>
+      </mat-expansion-panel-header>
+      <mat-card-content>
+        <p>{{q.description}}</p>
+    </mat-card-content>
+    <br>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" class="ml20">Questions</button>
+        <button mat-stroked-button class="ml20">Max Marks {{q.totalMarks}}</button>
+        <button mat-stroked-button class="ml20">Questions: {{q.numberOfQuestions}}</button>
+        <button mat-stroked-button color="green" class="ml20">Attempts:{{0}}</button>
+        <span class="spacer"></span>
+        <mat-icon [routerLink]="'/admin/quiz/'+q.id" class="icon" >update</mat-icon>
+        <mat-icon class="icon" (click)="deleteQuiz(q.id)">delete</mat-icon>
+    </mat-card-actions>
+    </mat-expansion-panel>
+</mat-accordion>          
+<div class="button-container text-center mt20">
+    <button mat-raised-button color="accent" routerLink="/admin/add-quiz">Add New Quiz</button>
+</div>

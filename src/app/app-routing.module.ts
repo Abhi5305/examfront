@@ -9,6 +9,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 const routes: Routes = [
   {
@@ -39,6 +44,26 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'categories',
+        component: ViewCategoryComponent,
+      },
+      {
+        path: 'add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path: 'quizzes',
+        component: ViewQuizzesComponent,
+      },
+      {
+        path: 'add-quiz',
+        component: AddQuizComponent,
+      },
+      {
+        path: 'quiz/:id',
+        component: UpdateQuizComponent,
       },
     ],
   },

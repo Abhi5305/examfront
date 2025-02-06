@@ -26,11 +26,23 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 @NgModule({
   declarations: [
     AppComponent,  
-    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, AdminComponent, UserComponent, ProfileComponent, AdminDashboardComponent, UserDashboardComponent, SidebarComponent, AdminHomeComponent
+    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, AdminComponent, UserComponent, ProfileComponent, AdminDashboardComponent, UserDashboardComponent, SidebarComponent, AdminHomeComponent, ViewCategoryComponent, AddCategoryComponent, ViewQuizzesComponent, AddQuizComponent, ConfirmDialogComponent, UpdateQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +56,13 @@ import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.componen
     MatSnackBarModule,
     MatCardModule,   
     MatIconModule,
+    MatPaginatorModule,
+    MatExpansionModule,
     MatToolbarModule,
+    MatAutocompleteModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatDialogModule,
     MatListModule
   ],
   providers: [    {

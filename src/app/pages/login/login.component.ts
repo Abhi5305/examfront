@@ -8,7 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  public credential = {
+  credential = {
     username : '',
     password : '',
   };
@@ -40,7 +40,7 @@ export class LoginComponent {
             console.log(user)
             const roles = this.loginService.getUserRoles();
 
-            if (roles.includes("ROLE_ADMIN")) {
+            if (roles.includes("ROLE_ADMIN")||roles.includes("ADMIN")) {
               console.log("User has ROLE_ADMIN");
               window.location.href = '/admin';
               // Perform actions specific to ROLE_ADMIN
