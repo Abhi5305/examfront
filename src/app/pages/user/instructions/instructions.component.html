@@ -1,0 +1,19 @@
+<div class="instruction-page">
+  <div class="content">
+    <h1>📜 Quiz Instructions <strong>{{quizzes.title}}</strong>.</h1>
+    <p>Please read the instructions carefully before starting the quiz.</p>
+
+    <ul class="instruction-list">
+      <li>✔ The quiz contains <strong>{{quizzes.numberOfQuestions}}</strong>.</li>
+      <li>✔ Each question carries <strong>{{qMark}} marks</strong>.</li>
+      <li>✔ No negative marking for wrong answers.</li>
+      <li>✔ You have <strong>{{qTime}} minutes </strong> to complete the quiz.</li>
+      <li>✔ Do not refresh or leave the page during the quiz.</li>
+      <li>✔ Click the "Start Quiz" button when ready.</li>
+    </ul>
+
+    <div class="button-container">
+      <button class="start-btn" (click)="startQuiz()">Start Quiz</button>
+    </div>
+  </div>
+</div>

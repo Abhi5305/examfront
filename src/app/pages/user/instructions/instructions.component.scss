@@ -1,0 +1,66 @@
+/* Full-page container */
+.instruction-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+  }
+  
+  /* Content box */
+  .content {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Title */
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  /* Instructions list */
+  .instruction-list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+  }
+  
+  .instruction-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .instruction-list li::before {
+    content: "✅";
+    margin-right: 10px;
+  }
+  
+  /* Start button */
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .start-btn {
+    background-color: #ffcc00;
+    color: black;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .start-btn:hover {
+    background-color: #ffdd44;
+  }
+  

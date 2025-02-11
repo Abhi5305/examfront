@@ -66,7 +66,14 @@ export class UpdateQuizComponent implements OnInit {
     this._quiz.updateQuiz(qId,quizData).subscribe({
       next: (data:any)=>{
         this.quizData.status=this.checked;
-        Swal.fire("Success!!","Quiz updated",'success').then((route)=>{
+        Swal.fire({
+          title: 'Success',
+          text: data.message,
+          icon: 'success',
+          confirmButtonText: 'OK',
+          timer: 2000, // 3000ms = 3 seconds
+          timerProgressBar: true, // Optional, shows a progress bar          
+        }).then((route)=>{
           this._router.navigate(["/admin/quizzes"])
         });   
       },error:(error)=>{

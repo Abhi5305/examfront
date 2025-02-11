@@ -18,8 +18,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth.interceptor';
-import { AdminComponent } from './pages/admin/admin.component';
-import { UserComponent } from './pages/user/user.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import {MatListModule} from '@angular/material/list';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
@@ -38,11 +36,18 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
-
+import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
+import { AddQuizQuestionComponent } from './pages/admin/add-quiz-question/add-quiz-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 @NgModule({
   declarations: [
     AppComponent,  
-    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, AdminComponent, UserComponent, ProfileComponent, AdminDashboardComponent, UserDashboardComponent, SidebarComponent, AdminHomeComponent, ViewCategoryComponent, AddCategoryComponent, ViewQuizzesComponent, AddQuizComponent, ConfirmDialogComponent, UpdateQuizComponent
+    NavbarComponent, SignupComponent, LoginComponent, HomeComponent, ProfileComponent, AdminDashboardComponent, UserDashboardComponent, SidebarComponent, AdminHomeComponent, ViewCategoryComponent, AddCategoryComponent, ViewQuizzesComponent, AddQuizComponent, ConfirmDialogComponent, UpdateQuizComponent, ViewQuizQuestionComponent, AddQuizQuestionComponent, UpdateQuestionComponent, UserSidebarComponent, LoadQuizzesComponent, InstructionsComponent, StartQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,8 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     MatSlideToggleModule,
     MatSelectModule,
     MatDialogModule,
-    MatListModule
+    CKEditorModule,
+    MatListModule,
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,

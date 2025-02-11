@@ -1,16 +1,13 @@
-.header-image {
+.truncate-single-line {
+    white-space: nowrap;        
+    overflow: hidden;          
+    text-overflow: ellipsis;     
+}
+.example-header-image {
     background-image: url('../../../../assets/icons8-quiz-100.png');
     background-size: cover;
   }
-  .spacer {
-    flex: 1 1 auto;
-  }
-  .icon {
-    padding: 0 50px;
-  }
-  .mr50{
-    margin-right: 50px;
-  }
+
   .inactive-button {
     background-color: red;
     color: white;

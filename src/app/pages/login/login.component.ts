@@ -46,7 +46,7 @@ export class LoginComponent {
               // Perform actions specific to ROLE_ADMIN
             } else if (roles.includes("ROLE_USER")) {
               console.log("User has ROLE_USER");
-              window.location.href = '/user';
+              window.location.href = '/user/0';
               // Perform actions specific to ROLE_USER
             } else {
               console.log("User has no valid role");

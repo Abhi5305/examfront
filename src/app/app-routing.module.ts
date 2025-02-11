@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
@@ -14,6 +12,14 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
+import { AddQuizQuestionComponent } from './pages/admin/add-quiz-question/add-quiz-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 
 const routes: Routes = [
   {
@@ -65,14 +71,41 @@ const routes: Routes = [
         path: 'quiz/:id',
         component: UpdateQuizComponent,
       },
+      {
+        path: 'questions/quiz/:id/:title',
+        component: ViewQuizQuestionComponent,
+      },
+      {
+        path: 'add-questions/quiz/:id/:title',
+        component: AddQuizQuestionComponent,
+      },
+      {
+        path: 'update-question/quiz/:id',
+        component: UpdateQuestionComponent,
+      },
     ],
   },
   {
     path: 'user',
-    component: UserComponent,
+    component: UserDashboardComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_USER'] },
-    pathMatch: 'full',
+    children: [
+      {
+        path: ':id',
+        component: LoadQuizzesComponent,
+      },
+      {
+        path: 'instruction/:id',
+        component: InstructionsComponent,
+      },
+    ]
+  },
+  {
+    path: 'start/:id',
+    component: StartQuizComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] },
   },
   { path: '**', redirectTo: '',
     pathMatch: 'full',
