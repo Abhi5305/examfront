@@ -12,19 +12,28 @@ import Swal from 'sweetalert2';
 export class StartQuizComponent implements OnInit{
   qId=0;
   qTitle='';
-  questions=
-[  {
-    "questionText": "",
-    "option1": "",
-    "option2": "",
-    "option3": "",
-    "option4": "",
-    "correctAnswer": "",
-    "quiz": {
-      "id": 0,
-      "title": ''
+  attempted=0;
+  marksPerQuestion=0;
+  score=0;
+  correctAnswers=0;
+  isSubmit=false;
+  questions=[ 
+    {
+      "questionText": "",
+      "option1": "",
+      "option2": "",
+      "option3": "",
+      "option4": "",
+      "correctAnswer": "",
+      "givenAnswer": "",
+      "quiz": {
+        "id": 0,
+        "title": "",
+        "totalMarks": 0,
+        "numberOfQuestions": 0
+      }
     }
-  }]
+  ]
   constructor(private _locationStr:LocationStrategy,
         private _quest:QuestionService,
         private _route:ActivatedRoute
@@ -45,9 +54,13 @@ export class StartQuizComponent implements OnInit{
     this._quest.getAllQuestionsOfQuiz(id).subscribe({
       next: (data:any)=>{
         this.questions=data;
-        console.log(this.questions);
         this.qTitle=this.questions?.[0].quiz.title;
-
+        this.marksPerQuestion = this.questions?.[0].quiz.totalMarks/this.questions.length;       
+        console.log(this.questions);
+        this.questions.forEach(q => {
+          (q as any).givenAnswer = '';
+        });
+        
       },
       error: (error)=>{
         Swal.fire({
@@ -95,6 +108,31 @@ disableRightClick(event: MouseEvent) {
 warnBeforeExit(event: BeforeUnloadEvent) {
   event.preventDefault();
   event.returnValue = "Are you sure you want to leave the quiz? Your progress will be lost.";
+}
+
+submit(){
+  Swal.fire({
+    icon: "question",
+    text: "Do you really want to submit quiz!",
+    timer: 3000,
+    timerProgressBar: true
+  }).then((result)=>{
+    if(result.isConfirmed){
+      //calculate Marks
+      this.isSubmit=true;
+      this.questions.forEach((q)=>{
+        if(q.givenAnswer != ''){
+          this.attempted++;
+          if(q.givenAnswer === q.correctAnswer){
+            this.correctAnswers++;
+            this.score += this.marksPerQuestion
+          }
+        }
+      })
+      console.log("attempted: ",this.attempted);
+      console.log("Score: ", this.score);            
+    }
+  })
 }
 
 
