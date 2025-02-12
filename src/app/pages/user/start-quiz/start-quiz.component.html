@@ -55,6 +55,20 @@
                     </div>  
                 </ng-container>
             </div>
+            <div class="col-md-2">
+                <mat-card class="mt50">
+                    <mat-card-content class="text-center">
+                      <h2 class="example-h2">{{timeFormatter()}}</h2>
+                  
+                      <mat-progress-spinner
+                          class="example-margin"
+                          [color]="'warn'"
+                          [mode]="'determinate'"
+                          [value]="(timer/(questions.length * 60))*100">
+                      </mat-progress-spinner>
+                    </mat-card-content>
+                  </mat-card>
+            </div>
         </div>
     </div>
 </div>

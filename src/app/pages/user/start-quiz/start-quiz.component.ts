@@ -17,6 +17,7 @@ export class StartQuizComponent implements OnInit{
   score=0;
   correctAnswers=0;
   isSubmit=false;
+  timer = 0;
   questions=[ 
     {
       "questionText": "",
@@ -55,7 +56,9 @@ export class StartQuizComponent implements OnInit{
       next: (data:any)=>{
         this.questions=data;
         this.qTitle=this.questions?.[0].quiz.title;
-        this.marksPerQuestion = this.questions?.[0].quiz.totalMarks/this.questions.length;       
+        this.marksPerQuestion = this.questions?.[0].quiz.totalMarks/this.questions.length;  
+        this.timer = this.questions.length*60;
+        this.startTimer();     
         console.log(this.questions);
         this.questions.forEach(q => {
           (q as any).givenAnswer = '';
@@ -119,23 +122,39 @@ submit(){
   }).then((result)=>{
     if(result.isConfirmed){
       //calculate Marks
-      this.isSubmit=true;
-      this.questions.forEach((q)=>{
-        if(q.givenAnswer != ''){
-          this.attempted++;
-          if(q.givenAnswer === q.correctAnswer){
-            this.correctAnswers++;
-            this.score += this.marksPerQuestion
-          }
-        }
-      })
+      this.evalQuiz();
       console.log("attempted: ",this.attempted);
       console.log("Score: ", this.score);            
     }
   })
 }
-
-
+startTimer(){
+  let t = window.setInterval(()=>{
+    if(this.timer<=0){
+      this.evalQuiz();
+      clearInterval(t);
+    }else{
+      this.timer--;
+    }
+  },1000)
+}
+timeFormatter(){
+  let mm = Math.floor(this.timer/60);
+  let ss = this.timer-mm*60;
+  return `${mm} : ${ss}`
+}
+evalQuiz(){
+  this.isSubmit=true;
+  this.questions.forEach((q)=>{
+    if(q.givenAnswer != ''){
+      this.attempted++;
+      if(q.givenAnswer === q.correctAnswer){
+        this.correctAnswers++;
+        this.score += this.marksPerQuestion
+      }
+    }
+  })
+}
 }
 
 

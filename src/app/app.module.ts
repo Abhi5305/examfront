@@ -44,6 +44,9 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
 import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent,  
@@ -70,6 +73,8 @@ import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component
     MatDialogModule,
     CKEditorModule,
     MatListModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,
