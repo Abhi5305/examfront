@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,14 +37,12 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
 import { AddQuizQuestionComponent } from './pages/admin/add-quiz-question/add-quiz-question.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -71,10 +68,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MatSlideToggleModule,
     MatSelectModule,
     MatDialogModule,
-    CKEditorModule,
     MatListModule,
     MatProgressSpinnerModule,
-    NgxUiLoaderModule,
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,
