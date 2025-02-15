@@ -1,14 +1,26 @@
-<mat-card>
-    <mat-card-header><h1> All categories </h1> </mat-card-header>
-    <mat-list>
-        <mat-list-item *ngFor="let c of categories">
-            <mat-icon matListItemIcon>category</mat-icon>
-            <div matListItemLine>{{ c.title }}</div>
-            <div matListItemLine>{{ c.description }}</div>
-            <mat-divider></mat-divider>
-        </mat-list-item>
-    </mat-list>
-    <div class="button-container text-center mb10">
-        <button mat-raised-button color="accent" routerLink="/admin/add-category">Add New Category</button>
+<h1> All categories </h1>
+<mat-card *ngFor="let c of categories">    
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item >
+                <mat-icon matListItemIcon>category</mat-icon>
+                <div matListItemLine><b>{{ c.title }}</b></div>
+                <div matListItemLine>{{ c.description }}</div>
+                <mat-divider></mat-divider>        
+            </mat-list-item>            
+        </mat-list>
+    </mat-card-content>
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-6 offset-md-4">
+                <mat-card-actions>
+                    <mat-icon class="icon" [routerLink]="'/admin/category/'+c.id">update</mat-icon>
+                    <mat-icon class="icon" (click)="deleteCategory(c.id)" >delete</mat-icon>
+                </mat-card-actions>
+            </div>
+        </div>
     </div>
 </mat-card>
+<div class="button-container text-center mt10 mb10">
+    <button mat-raised-button color="accent" routerLink="/admin/add-category">Add New Category</button>
+</div>

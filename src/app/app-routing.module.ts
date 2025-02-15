@@ -20,6 +20,7 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
 import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path: 'add-category',
         component: AddCategoryComponent,
+      },
+      {
+        path: 'category/:id',
+        component: UpdateCategoryComponent,
       },
       {
         path: 'quizzes',

@@ -23,8 +23,6 @@ export class AddCategoryComponent {
     }
     this.category.addCategories(this.categories).subscribe({
       next: (data:any)=>{
-        this.categories.title='';
-        this.categories.description='';
         Swal.fire({
                   title: 'Success',
                   text: data.title,

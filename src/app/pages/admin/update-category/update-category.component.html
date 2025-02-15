@@ -1,10 +1,10 @@
 <mat-card>
-    <mat-card-header><h1> Add category </h1> </mat-card-header>
+    <mat-card-header><h1> Update category </h1> </mat-card-header>
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <form (ngSubmit)="formSubmit()">
+                    <form (ngSubmit)="formSubmit(catId,categories)">
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Title</mat-label>
                                 <input type="text" matInput required
@@ -22,7 +22,7 @@
                                 </textarea>                           
                         </mat-form-field>
                         <div class="button-container text-center mb10">
-                            <button mat-raised-button color="primary">Add New Category</button>
+                            <button mat-raised-button color="primary">Update</button>
                         </div>
                     </form>                    
                 </div>

@@ -38,7 +38,7 @@ constructor(private quizService:QuizService,private dialog: MatDialog){}
       },
       error: (error)=>{
         console.log(error);
-        Swal.fire("Error !!","Error while fetching quizzes", error);
+        Swal.fire("Error !!","Error while fetching quizzes", 'error');
       }
   })
   }
@@ -54,6 +54,7 @@ constructor(private quizService:QuizService,private dialog: MatDialog){}
         next: ()=>{
           this.quizzes = this.quizzes.filter(quiz=>quiz.id != id);
           Swal.fire({
+            icon: 'success',
             title: 'Deleted Successfully',
             timer: 3000, // 3000ms = 3 seconds
             timerProgressBar: true, // Optional, shows a progress bar          
