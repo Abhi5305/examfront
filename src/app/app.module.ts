@@ -43,6 +43,7 @@ import { LoadQuizzesComponent } from './pages/user/load-quizzes/load-quizzes.com
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDialogModule,
     MatListModule,
     MatProgressSpinnerModule,
+    NgxSpinnerModule,
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,
