@@ -1,2 +1,2 @@
-let baseUrl = 'http://localhost:8181';
+let baseUrl = 'https://quizzz-abhi.onrender.com';
 export default baseUrl;
