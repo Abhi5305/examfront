@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class LoginComponent {
     username : '',
     password : '',
   };
-  constructor(private loginService : LoginService, private snack:MatSnackBar){}
+  constructor(private loginService : LoginService, 
+    private snack:MatSnackBar,
+  private router: Router){}
   submitLoginCredentials(){
     if(this.credential.username.trim() == '' || this.credential.username == null){
       this.snack.open('username is required!','',{
@@ -42,11 +45,11 @@ export class LoginComponent {
 
             if (roles.includes("ROLE_ADMIN")||roles.includes("ADMIN")) {
               console.log("User has ROLE_ADMIN");
-              window.location.href = '/admin';
+              this.router.navigate(['/admin']);
               // Perform actions specific to ROLE_ADMIN
             } else if (roles.includes("ROLE_USER")) {
               console.log("User has ROLE_USER");
-              window.location.href = '/user/0';
+              this.router.navigate(['/user/0']);
               // Perform actions specific to ROLE_USER
             } else {
               console.log("User has no valid role");
@@ -57,8 +60,10 @@ export class LoginComponent {
         });
       },
       error: (error) =>{
-        console.log("Success")
         console.log(error)
+        this.snack.open("facing issues while logging in Please provide valid credentials!!","",{
+          duration: 3000,
+        })
       }
     });
   }

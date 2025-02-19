@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { RegistrationService } from 'src/app/services/registration.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,9 @@ import Swal from 'sweetalert2';
 export class SignupComponent {
   errorMessages: string[] = []; // To store error messages
 
-  constructor(private registrationService : RegistrationService, private snack :MatSnackBar ){};
+  constructor(private registrationService : RegistrationService,
+     private snack :MatSnackBar,
+    private router: Router ){};
   public user = {
     username : '',
     password : '',
@@ -46,7 +49,8 @@ export class SignupComponent {
           timer: 3000, // 3000ms = 3 seconds
           timerProgressBar: true, // Optional, shows a progress bar          
         })
-        window.location.href = '/login';
+        this.router.navigate(['/login']);
+
       },
       error:(error: HttpErrorResponse) => {
         // Extract error messages

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(public loginService: LoginService){}
+  constructor(public loginService: LoginService,
+    private router: Router
+  ){}
   ngOninit(){
     console.log(this.loginService.getToken());
   }
@@ -18,7 +21,8 @@ export class NavbarComponent {
   }
   
   showProfile(): void {
-    window.location.href="/admin/profile"
+    this.router.navigate(['/admin/profile']);
+
   }
 
 }
